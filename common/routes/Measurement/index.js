@@ -6,11 +6,11 @@ export default function createRoutes(store) {
     path: 'login',
     getComponents (location, cb) {
       require.ensure([
-        './containers/LoginPageSmart',
-        './reducer'
+        './containers/MeasurementPage',
+        './reducer',
       ], (require) => {
-        let LoginPage = require('./containers/LoginPageSmart').default
-        cb(null, LoginPage)
+        const MeasurementPage = require('./containers/MeasurementPageSmart').default
+        cb(null, MeasurementPage)
       })
     },
   }

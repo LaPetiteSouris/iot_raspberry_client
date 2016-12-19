@@ -26,9 +26,8 @@ class LoginForm extends React.Component {
 }
 
 LoginForm = reduxForm({
-  form: 'contact',                      // the name of your form and the key to
-                                        // where your form's state will be mounted
+  form: 'login',                      // the name of your form and the key to
   fields: ['name', 'address', 'email'], // a list of all your fields in your form
-})(LoginForm);
+})(LoginForm)
 
 export default LoginForm

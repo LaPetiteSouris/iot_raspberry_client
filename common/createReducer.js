@@ -1,4 +1,6 @@
 import { combineReducers } from 'redux'
+import { reducer as formReducer } from 'redux-form';
+
 const initialState = {
   host: '',
   protocol: ''
@@ -10,7 +12,8 @@ const sourceRequest = (state = initialState, action) => state
 // added async
 export default function createReducer (asyncReducers) {
   return combineReducers({
+    form: formReducer,
     sourceRequest,
-    ...asyncReducers
+    ...asyncReducers,
   })
 }

@@ -1,16 +1,16 @@
 import React from 'react'
 import Helmet from 'react-helmet'
-import Nav from './Nav'
-import { StyleSheet, css } from 'aphrodite'
+import {StyleSheet, css} from 'aphrodite'
 
-const App = ({ children }) => (
+
+const App = ({children}) => (
   <div className={css(styles.root)}>
-    <Helmet title='React Production Starter' titleTemplate='%s - React Production Starter' />
-    <h1 className={css(styles.title)}>React Production Starter</h1>
-    <Nav />
+    <Helmet title='Raspberry Measurement' titleTemplate='%s -Raspberry Measurement'/>
+    <h1 className={css(styles.title)}>Raspberry Measurement</h1>
     {children}
     <footer className={css(styles.footer)}>
-      Copyright © 2016 <a className={css(styles.footerLink)} href='http://twitter.com/jaredpalmer' target='_blank'>Jared Palmer</a>
+      Copyright © 2016 <a className={css(styles.footerLink)}>
+      TungHoang-DrissiMustafa</a>
     </footer>
   </div>
 )
