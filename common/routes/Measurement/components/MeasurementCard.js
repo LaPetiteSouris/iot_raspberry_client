@@ -1,31 +1,27 @@
-import { Card, CardHeader, CardMedia, CardTitle, CardText } from 'material-ui/Card'
-
+import { Card, CardMedia, CardTitle, CardText } from 'material-ui/Card'
 import { provideHooks } from 'redial'
 import React, { PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { loadMeasurement } from '../actions'
-
-import { selectCurrentMeasurement } from '../reducer'
 
 
 const redial = {
   fetch: ({ dispatch }) => dispatch(loadMeasurement()),
 }
 
-const mapStateToProps = state => selectCurrentMeasurement(state)
+const mapStateToProps = (state) => {
+  return state.measurement
+}
 
 
 const MeasurementCard = ({ title, value, description }) => (
   <Card>
-    <CardHeader
-      title={ title }
-    />
     <CardMedia
-      overlay={<CardTitle title="Overlay title" subtitle="Overlay subtitle"/>}
+      overlay={<CardTitle title={ title}/>}
     >
-      <img src="chart.jpg"/>
+      <img src="http://1.bp.blogspot.com/-TYcddWRWuwk/Vi98dmiFmsI/AAAAAAAAAX8/Er7x8_08Ues/s1600/Material%2BCharts.png"/>
     </CardMedia>
-    <CardTitle title={ value} subtitle="Card subtitle"/>
+    <CardTitle title={ value} subtitle="Current value"/>
     <CardText>{ description }</CardText>
 
   </Card>

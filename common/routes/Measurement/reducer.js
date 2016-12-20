@@ -3,9 +3,9 @@ import * as types from '../../constants'
 const initialState = {
   lastFetched: null,
   error: null,
-  title: '',
-  value: '',
-  description: '',
+  title: 'n/a',
+  value: 'n/a',
+  description: 'n/a',
 }
 
 export default function currentMeasurement(state = initialState, action) {
@@ -33,5 +33,3 @@ export default function currentMeasurement(state = initialState, action) {
   }
 }
 
-// Example of a co-located selector
-export const selectCurrentMeasurement = state => state.Measurement

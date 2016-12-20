@@ -4,13 +4,13 @@ import {
   from '../../constants'
 
 export function loadMeasurement() {
+  console.log('Loading measurement')
   return (dispatch, getState, { axios }) => {
     const { protocol, host } = getState().sourceRequest
     dispatch({ type: LOAD_MEASUREMENT_REQUEST })
     return axios.get(`${protocol}://${host}/api/v0/measurement`)
       .then(res => {
         dispatch({
-
           type: LOAD_MEASUREMENT_SUCCESS,
           payload: res.data,
           meta: {

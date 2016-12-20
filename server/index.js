@@ -57,7 +57,7 @@ export const createServer = (config) => {
   }
 
   app.use(express.static('public'))
-  app.use('/api/v0/posts', require('./api/posts'))
+  app.use('/api/v0/measurement', require('./api/measurements'))
 
 
   app.get('*', (req, res) => {
@@ -71,7 +71,7 @@ export const createServer = (config) => {
     const history = createMemoryHistory(req.originalUrl)
     const { dispatch } = store
 
-    match({ routes, history}, (err, redirectLocation, renderProps) => {
+    match({ routes, history }, (err, redirectLocation, renderProps) => {
       if (err) {
         console.error(err)
         return res.status(500).send('Internal server error')
@@ -195,7 +195,7 @@ export const createServer = (config) => {
 
 
 export const startServer = (serverConfig) => {
-  const config =  {...DefaultServerConfig, ...serverConfig}
+  const config = { ...DefaultServerConfig, ...serverConfig }
   const server = createServer(config)
   server.listen(config.port, (err) => {
     if (config.nodeEnv === 'production' || config.nodeEnv === 'test') {
