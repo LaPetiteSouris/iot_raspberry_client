@@ -1,18 +1,18 @@
 import { Card, CardHeader, CardMedia, CardTitle, CardText } from 'material-ui/Card'
 
 import { provideHooks } from 'redial'
-import { React, PropTypes } from 'react'
+import React, { PropTypes } from 'react'
 import { connect } from 'react-redux'
-import { loadPost } from '../actions'
+import { loadMeasurement } from '../actions'
 
-import { selectCurrentPost } from '../reducer'
+import { selectCurrentMeasurement } from '../reducer'
 
 
 const redial = {
-  fetch: ({ dispatch, params: { slug } }) => dispatch(loadPost(slug))
+  fetch: ({ dispatch }) => dispatch(loadMeasurement()),
 }
 
-const mapStateToProps = state => selectCurrentPost(state)
+const mapStateToProps = state => selectCurrentMeasurement(state)
 
 
 const MeasurementCard = ({ title, value, description }) => (
@@ -23,7 +23,7 @@ const MeasurementCard = ({ title, value, description }) => (
     <CardMedia
       overlay={<CardTitle title="Overlay title" subtitle="Overlay subtitle"/>}
     >
-      <img src="chart.jpg" />
+      <img src="chart.jpg"/>
     </CardMedia>
     <CardTitle title={ value} subtitle="Card subtitle"/>
     <CardText>{ description }</CardText>
@@ -35,6 +35,7 @@ MeasurementCard.propTypes = {
   title: PropTypes.string,
   value: PropTypes.string,
   description: PropTypes.string,
+  error: PropTypes.object,
 }
 
 

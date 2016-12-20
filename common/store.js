@@ -3,7 +3,7 @@ import thunk from 'redux-thunk'
 import axios from 'axios'
 import createReducer from './createReducer'
 
-export function configureStore (initialState) {
+export function configureStore(initialState) {
   let store = createStore(createReducer(), initialState, compose(
     applyMiddleware(
       thunk.withExtraArgument({ axios })
@@ -27,7 +27,7 @@ export function configureStore (initialState) {
   return store
 }
 
-export function injectAsyncReducer (store, name, asyncReducer) {
+export function injectAsyncReducer(store, name, asyncReducer) {
   store.asyncReducers[name] = asyncReducer
   store.replaceReducer(createReducer(store.asyncReducers))
 }

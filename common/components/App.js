@@ -1,13 +1,21 @@
 import React from 'react'
 import Helmet from 'react-helmet'
-import {StyleSheet, css} from 'aphrodite'
+import { StyleSheet, css } from 'aphrodite'
+import getMuiTheme from 'material-ui/styles/getMuiTheme'
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 
 
-const App = ({children}) => (
+
+
+const App = ({ children }) => (
   <div className={css(styles.root)}>
     <Helmet title='Raspberry Measurement' titleTemplate='%s -Raspberry Measurement'/>
     <h1 className={css(styles.title)}>Raspberry Measurement</h1>
-    {children}
+
+    <MuiThemeProvider muiTheme={getMuiTheme()}>
+      {children}
+    </MuiThemeProvider>
+
     <footer className={css(styles.footer)}>
       Copyright © 2016 <a className={css(styles.footerLink)}>
       TungHoang-DrissiMustafa</a>

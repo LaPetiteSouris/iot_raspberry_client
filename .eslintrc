@@ -10,5 +10,11 @@
     "space-infix-ops": 0,
     "no-multi-spaces": 0,
     "no-useless-escape": 0
+  },
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "ecmaFeatures": {
+      "experimentalObjectRestSpread": true
+    }
   }
 }
