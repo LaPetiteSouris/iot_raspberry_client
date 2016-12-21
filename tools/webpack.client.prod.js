@@ -52,6 +52,22 @@ module.exports = {
   module: {
     loaders: [
       {
+        test: /\.(gif|jpe?g|png|ico)$/,
+        loader: 'url-loader?limit=10000',
+      },
+      {
+        test: /\.(otf|eot|svg|ttf|woff|woff2).*$/,
+        loader: 'url-loader?limit=10000',
+      },
+      {
+        test: /\.(gif|jpe?g|png|ico)$/,
+        loader: 'url-loader?limit=10000',
+      },
+      {
+        test: /\.(otf|eot|svg|ttf|woff|woff2).*$/,
+        loader: 'url-loader?limit=10000',
+      },
+      {
         test: /\.js$/,
         loader: 'babel',
         query: {
@@ -59,7 +75,7 @@ module.exports = {
           presets: ["es2015", "react", "stage-0", "react-optimize"],
         },
         exclude: /(node_modules)/
-      }
+      },
     ]
   }
 }

@@ -24,10 +24,14 @@ const MeasurementPage = ({ measurements }) => (
 
       {
         measurements.data.map((measurement, _) =>
-          <MeasurementCard key={ measurement.id } measurement={measurement}/>)
+          <div style={{ marginTop: '50' }}>
+            <MeasurementCard key={ measurement.id } measurement={measurement}/>
+          </div>
+        )
       }
-    </div>
 
+
+    </div>
   </div>
 
 )
