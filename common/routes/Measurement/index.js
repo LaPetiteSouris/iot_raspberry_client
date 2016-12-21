@@ -11,7 +11,7 @@ export default function createRoutes(store) {
       ], (require) => {
         const MeasurementPage = require('./containers/MeasurementPage').default
         const measurementReducer = require('./reducer').default
-        injectAsyncReducer(store, 'measurement', measurementReducer)
+        injectAsyncReducer(store, 'measurements', measurementReducer)
         cb(null, MeasurementPage)
       })
     },

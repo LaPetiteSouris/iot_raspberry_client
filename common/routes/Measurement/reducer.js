@@ -3,9 +3,7 @@ import * as types from '../../constants'
 const initialState = {
   lastFetched: null,
   error: null,
-  title: 'n/a',
-  value: 'n/a',
-  description: 'n/a',
+  data: null,
 }
 
 export default function currentMeasurement(state = initialState, action) {
@@ -18,9 +16,7 @@ export default function currentMeasurement(state = initialState, action) {
     case types.LOAD_MEASUREMENT_SUCCESS:
       return {
         ...state,
-        title: action.payload.title,
-        value: action.payload.value,
-        description: action.payload.description,
+        data: action.payload,
         lastFetched: action.meta.lastFetched,
       }
     case types.LOAD_MEASUREMENT_FAILURE:

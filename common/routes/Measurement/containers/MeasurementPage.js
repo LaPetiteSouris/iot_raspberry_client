@@ -1,19 +1,40 @@
-import React from 'react'
+import React, { PropTypes } from 'react'
 import { connect } from 'react-redux'
-import MeasurementCard from '../components/MeasurementCard'
+import  MeasurementCard  from '../components/MeasurementCard'
+import { provideHooks } from 'redial'
+import { loadMeasurement } from '../actions'
 
-class MeasurementPageSmart extends React.Component {
 
-  render() {
-    return (
-      <div id="app">
-        <h1>Measurement Card</h1>
-        <div style={{ marginTop: '50' }}>
-          <MeasurementCard /></div>
-      </div>
-    )
-  }
-
+const redial = {
+  fetch: ({ dispatch }) => dispatch(loadMeasurement()),
 }
 
-export default connect()(MeasurementPageSmart)
+const mapStateToProps = (state) => ({
+
+  measurements: state.measurements
+})
+
+
+const MeasurementPage = ({ measurements }) => (
+
+  <div id="app">
+    <h1>Measurements</h1>
+
+    <div style={{ marginTop: '50' }}>
+
+      {
+        measurements.data.map((measurement, _) =>
+          <MeasurementCard key={ measurement.id } measurement={measurement}/>)
+      }
+    </div>
+
+  </div>
+
+)
+
+
+MeasurementPage.propTypes = {
+  measurements: PropTypes.object.isRequired,
+}
+
+export default provideHooks(redial)(connect(mapStateToProps)(MeasurementPage))
