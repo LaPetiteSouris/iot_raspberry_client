@@ -8,7 +8,7 @@ const MeasurementCard = ({ measurement }) => (
       title={ measurement.title}
     />
 
-    <CardTitle title={ measurement.value} subtitle="Current value"/>
+    <CardTitle title={ measurement.value.slice(-1)[0]} subtitle="Current value"/>
 
   </Card>
 )
@@ -16,8 +16,9 @@ const MeasurementCard = ({ measurement }) => (
 MeasurementCard.propTypes = {
   measurement: PropTypes.shape({
     title: PropTypes.string,
-    value: PropTypes.string,
+    value: PropTypes.array,
     description: PropTypes.string,
+    timestamp: PropTypes.array,
     error: PropTypes.object,
   }),
 }

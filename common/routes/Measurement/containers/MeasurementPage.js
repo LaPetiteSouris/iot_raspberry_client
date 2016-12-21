@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react'
 import { connect } from 'react-redux'
 import  MeasurementCard  from '../components/MeasurementCard'
+import Chart from '../components/Chart'
 import { provideHooks } from 'redial'
 import { loadMeasurement } from '../actions'
 
@@ -26,6 +27,7 @@ const MeasurementPage = ({ measurements }) => (
         measurements.data.map((measurement, _) =>
           <div style={{ marginTop: '50' }}>
             <MeasurementCard key={ measurement.id } measurement={measurement}/>
+            <Chart measurement={ measurement}/>
           </div>
         )
       }
