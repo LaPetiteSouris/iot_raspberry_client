@@ -4,8 +4,6 @@
 
 export default function connectDB() {
   const mongoose = require('mongoose')
-  mongoose.connect('mongodb://api:api@ds141088.mlab.com:41088/iot')
-
-  return mongoose
+  return mongoose.createConnection('mongodb://api:api@ds141088.mlab.com:41088/iot')
 }
 

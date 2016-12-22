@@ -2,7 +2,9 @@
  * Created by tung on 12/22/16.
  */
 import connectDB from '../connection'
-const Schema = connectDB().Schema
+import mongoose from 'mongoose'
+
+const Schema = mongoose.Schema
 
 const humiditySchema = new Schema({
   title: String,
