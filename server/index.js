@@ -18,12 +18,12 @@ import Helm from 'react-helmet' // because we are already using helmet
 import webpack from 'webpack'
 import webpackDevMiddleware from 'webpack-dev-middleware'
 import webpackHotMiddleware from 'webpack-hot-middleware'
-
 import DefaultServerConfig from './config'
 import webpackConfig from '../tools/webpack.client.dev'
 import { compileDev, startDev } from '../tools/dx'
 import { configureStore } from '../common/store'
 import reducer from '../common/createReducer'
+
 import createRoutes from '../common/routes/root'
 
 export const createServer = (config) => {
