@@ -4,6 +4,7 @@ import  MeasurementCard  from '../components/MeasurementCard'
 import Chart from '../components/Chart'
 import { provideHooks } from 'redial'
 import { loadMeasurement } from '../actions'
+import NavbarInstance from '../../NavBar'
 
 
 const redial = {
@@ -12,14 +13,15 @@ const redial = {
 
 const mapStateToProps = (state) => ({
 
-  measurements: state.measurements
+  measurements: state.measurements,
 })
 
 
 const MeasurementPage = ({ measurements }) => (
 
+
   <div id="app">
-    <h1>Measurements</h1>
+    <NavbarInstance/>
 
     <div style={{ marginTop: '50' }}>
 
@@ -31,7 +33,6 @@ const MeasurementPage = ({ measurements }) => (
           </div>
         )
       }
-
 
     </div>
   </div>

@@ -23,7 +23,7 @@ function parseMeasurement(measurement) {
 
 const Chart = ({ measurement }) => (
   <div style={{ marginTop: '20' }}>
-    <ChartContainer timeRange={parseMeasurement(measurement).timerange()} width={600}>
+    <ChartContainer timeRange={parseMeasurement(measurement).timerange()} width={650}>
       <ChartRow height="200">
         <YAxis id="valAxis" label={ measurement.unit} min={parseMeasurement(measurement).min()}
                max={parseMeasurement(measurement).max()}

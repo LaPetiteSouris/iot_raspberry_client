@@ -6,9 +6,10 @@ const MeasurementCard = ({ measurement }) => (
   <Card>
     <CardHeader
       title={ measurement.title}
+      style={{ backgroundColor: '#add7f4', fontWeight: 'bold' }}
     />
 
-    <CardTitle title={ measurement.value.slice(-1)[0]} subtitle="Current value"/>
+    <CardTitle title={ measurement.value.slice(-1)[0]} subtitle={ measurement.unit}/>
 
   </Card>
 )
