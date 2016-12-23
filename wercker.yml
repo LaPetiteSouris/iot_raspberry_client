@@ -15,7 +15,7 @@ deploy:
         password: $DOCKER_PASSWORD
         repository: souris/iot
         ports: "5000"
-        cmd: /bin/bash -c “cd /pipeline/source && supervisor - watch ./src src/server.js”
+        cmd: "npm run start"
       - add-ssh-key:
           keyname: DIGITAL_OCEAN
       - add-to-known_hosts:
