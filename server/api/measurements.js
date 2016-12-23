@@ -97,6 +97,9 @@ function postMeasurement(req, res) {
 
 router.get('/', findMeasurements)
 
+router.get('/ping', (req, res) => {
+  res.status(200).json({ response: 'pong' })
+})
 
 router.post('/data', postMeasurement)
 

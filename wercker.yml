@@ -37,4 +37,4 @@ deploy:
           code: ssh root@138.68.67.137 docker tag souris/iot:latest souris/iot:current
       - script:
           name: run new container
-          code: ssh root@138.68.67.137 docker run -d -p 8080:5000 --name iot souris/iot:current
+          code: ssh root@138.68.67.137 docker run -d -p 0.0.0.0:5000:5000 --name iot souris/iot:current
