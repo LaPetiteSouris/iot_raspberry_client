@@ -8,14 +8,14 @@ deploy:
     steps:
       - npm-install
       - script:
-        name: install supervisor
-        code: npm install -g supervisor
+        name: copy
+        code: cp -R /pipeline/source/. /usr/src/app/
       - internal/docker-push:
         username: $DOCKER_USERNAME
         password: $DOCKER_PASSWORD
         repository: souris/iot
         ports: "5000"
-        cmd: "npm run start"
+        cmd: "npm run build && npm run start:prod"
       - add-ssh-key:
           keyname: DIGITAL_OCEAN
       - add-to-known_hosts:
