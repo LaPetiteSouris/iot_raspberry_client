@@ -58,6 +58,7 @@
     "react-helmet": "^3.1.0",
     "react-redux": "^4.4.0",
     "react-router": "^2.0.0",
+    "react-timeout": "^1.0.0",
     "react-timeseries-charts": "^0.11.1",
     "redial": "^0.4.1",
     "redux": "^3.3.1",

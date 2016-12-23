@@ -7,7 +7,8 @@ import { AppBar } from 'material-ui'
 
 
 const navbarInstance = () => (
-  <AppBar title="My Measurements"/>
+  <AppBar title="My Measurements"
+  />
 )
 
 export default navbarInstance

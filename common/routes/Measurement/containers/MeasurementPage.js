@@ -16,8 +16,13 @@ const mapStateToProps = (state) => ({
   measurements: state.measurements,
 })
 
+const mapDispatchToProps = (dispatch) => ({
+  refresh: () => {
+    dispatch(loadMeasurement())
+  },
+})
 
-const MeasurementPage = ({ measurements }) => (
+const MeasurementPage = ({ measurements, refresh }) => (
 
 
   <div id="app">
@@ -28,7 +33,7 @@ const MeasurementPage = ({ measurements }) => (
       {
         measurements.data.map((measurement, _) =>
           <div style={{ marginTop: '50' }}>
-            <MeasurementCard key={ measurement.id } measurement={measurement}/>
+            <MeasurementCard key={ measurement.id } measurement={measurement} refresh={refresh}/>
             <Chart measurement={ measurement}/>
           </div>
         )
@@ -42,6 +47,7 @@ const MeasurementPage = ({ measurements }) => (
 
 MeasurementPage.propTypes = {
   measurements: PropTypes.object.isRequired,
+  refresh: PropTypes.func.isRequired,
 }
 
-export default provideHooks(redial)(connect(mapStateToProps)(MeasurementPage))
+export default provideHooks(redial)(connect(mapStateToProps, mapDispatchToProps)(MeasurementPage))

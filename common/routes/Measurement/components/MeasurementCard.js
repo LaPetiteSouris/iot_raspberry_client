@@ -2,17 +2,29 @@ import { Card, CardHeader, CardTitle } from 'material-ui/Card'
 import React, { PropTypes } from 'react'
 
 
-const MeasurementCard = ({ measurement }) => (
-  <Card>
-    <CardHeader
-      title={ measurement.title}
-      style={{ backgroundColor: '#add7f4', fontWeight: 'bold' }}
-    />
+class MeasurementCard extends React.Component {
+  componentDidMount() {
+    setInterval(this.props.refresh, 5000)
+  }
 
-    <CardTitle title={ measurement.value.slice(-1)[0]} subtitle={ measurement.unit}/>
+  render() {
+    return (
+      <Card>
+        <CardHeader
+          title={ this.props.measurement.title}
+          style={{ backgroundColor: '#add7f4', fontWeight: 'bold' }}
+        />
 
-  </Card>
-)
+        <CardTitle title={ this.props.measurement.value.slice(-1)[0]}
+                   subtitle={ this.props.measurement.unit}/>
+
+      </Card>
+
+
+    )
+  }
+}
+
 
 MeasurementCard.propTypes = {
   measurement: PropTypes.shape({
@@ -20,8 +32,10 @@ MeasurementCard.propTypes = {
     value: PropTypes.array,
     description: PropTypes.string,
     timestamp: PropTypes.array,
+    unit: PropTypes.String,
     error: PropTypes.object,
   }),
+  refresh: PropTypes.func.isRequired
 }
 
 export default MeasurementCard
