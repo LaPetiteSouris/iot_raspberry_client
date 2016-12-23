@@ -2,7 +2,7 @@
 
 Display data measured by Raspberry Pi 3 in a dynamic manner.
 
-Rasp5berry Pi 3 is connected with a ReadBear Lab  nRF51822, which in turns
+Raspberry Pi 3 is connected with a ReadBear Lab  nRF51822, which in turns
 connected to a Bosch BMP085 sensors.
 
 The objective of this project is to display the measured data

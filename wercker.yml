@@ -1,0 +1,39 @@
+build:
+ # The steps that will be executed on build
+ steps:
+     # A step that executes `npm install` command
+     - npm-install
+deploy:
+    steps:
+      - npm-install
+      - script:
+        name: install supervisor
+        code: npm install -g supervisor
+      - internal/docker-push:
+        username: $DOCKER_USERNAME
+        password: $DOCKER_PASSWORD
+        repository: souris/iot
+        ports: 5000
+        cmd: /bin/bash -c “cd /pipeline/source && supervisor - watch ./src src/server.js”
+- add-ssh-key:
+    keyname: DIGITAL_OCEAN
+- add-to-known_hosts:
+    hostname: 138.68.67.137
+- script:
+    name: pull latest image
+    code: ssh root@138.68.67.137 docker pull souris/iot:latest
+- script:
+    name: stop running container
+    code: ssh root@138.68.67.137 docker stop iot || echo ‘failed to stop running container’
+- script:
+    name: remove stopped container
+    code: ssh root@138.68.67.137 docker rm iot || echo ‘failed to remove stopped container’
+- script:
+    name: remove image behind stopped container
+    code: ssh root@138.68.67.137 docker rmi souris/iot:current || echo ‘failed to remove image behind stopped container’
+- script:
+    name: tag newly pulled image
+    code: ssh root@138.68.67.137 docker tag souris/iot:latest <username>/<app-name>:current
+- script:
+    name: run new container
+    code: ssh root@138.68.67.137 docker run -d -p 8080:5000 --name iot souris/iot:current
