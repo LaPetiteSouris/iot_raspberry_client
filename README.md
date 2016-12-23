@@ -7,8 +7,9 @@ connected to a Bosch BMP085 sensors.
 
 The objective of this project is to display the measured data
 in a dynamic manner on the web.
+#### Authors
 
-@Made with love in Paris </br>
+Made with keyboard, passion and coffee in Paris </br>
 Mustafa Drissi-Tung Hoang </br>
 
 UPMC(Université de Paris VI) </br>
