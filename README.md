@@ -11,6 +11,6 @@ in a dynamic manner on the web.
 @Made with love in Paris </br>
 Mustafa Drissi-Tung Hoang </br>
 
-UPMC(Universite de Paris VI) </br>
+UPMC(Université de Paris VI) </br>
 
 Forked from : https://github.com/jaredpalmer/react-production-starter
