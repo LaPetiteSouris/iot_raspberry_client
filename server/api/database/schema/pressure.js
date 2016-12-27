@@ -6,15 +6,14 @@ import mongoose from 'mongoose'
 
 const Schema = mongoose.Schema
 
-const humiditySchema = new Schema({
+const pressureSchema = new Schema({
   title: String,
   unit: String,
   timestamp: String,
-  value: String
-
+  value: String,
 })
 
 
-const Humidity = connectDB().model('Humidity', humiditySchema)
+const Pressure = connectDB().model('pressure', pressureSchema)
 
-export default Humidity
+export default Pressure
