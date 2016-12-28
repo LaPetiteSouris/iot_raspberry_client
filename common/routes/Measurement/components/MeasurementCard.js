@@ -1,7 +1,6 @@
 import { Card, CardHeader, CardTitle } from 'material-ui/Card'
 import React, { PropTypes } from 'react'
 
-
 class MeasurementCard extends React.Component {
   componentDidMount() {
     setInterval(this.props.refresh, 2000)
@@ -10,21 +9,21 @@ class MeasurementCard extends React.Component {
   render() {
     return (
       <Card>
-        <CardHeader
-          title={ this.props.measurement.title}
-          style={{ backgroundColor: '#add7f4', fontWeight: 'bold' }}
+        <CardHeader title={this.props.measurement.title} style={{
+          backgroundColor: '#add7f4',
+          fontWeight: 'bold',
+        }}
         />
 
-        <CardTitle title={ this.props.measurement.value.slice(-1)[0]}
-                   subtitle={ this.props.measurement.unit}/>
+        <CardTitle title={this.props.measurement.value.slice(-1)[0]}
+          subtitle={this.props.measurement.unit}
+        />
 
       </Card>
-
 
     )
   }
 }
-
 
 MeasurementCard.propTypes = {
   measurement: PropTypes.shape({
@@ -35,10 +34,7 @@ MeasurementCard.propTypes = {
     unit: PropTypes.String,
     error: PropTypes.object,
   }),
-  refresh: PropTypes.func.isRequired
+  refresh: PropTypes.func.isRequired,
 }
 
 export default MeasurementCard
-
-
-

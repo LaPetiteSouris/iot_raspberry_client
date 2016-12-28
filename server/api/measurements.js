@@ -13,18 +13,18 @@ function findMeasurements(req, res) {
   Promise.props({
     temperatureMeasurements: Temperature
       .find()
-      .sort({ _id: 1 })
-      .limit(50)
+      .sort({ _id: -1 })
+      .limit(300)
       .execAsync(),
     pressureMeasurements: Pressure
       .find()
-      .sort({ _id: 1 })
-      .limit(50)
+      .sort({ _id: -1 })
+      .limit(300)
       .execAsync(),
     altitudeMeasurements: Altitude
       .find()
-      .sort({ _id: 1 })
-      .limit(50)
+      .sort({ _id: -1 })
+      .limit(300)
       .execAsync(),
   }).then((results) => {
 
@@ -59,22 +59,22 @@ function findMeasurements(req, res) {
     const resBody = [
       {
         id: 'temp',
-        timestamp: tempMesTimestamp,
+        timestamp: tempMesTimestamp.reverse(),
         title: 'Temperature',
-        value: temMesValue,
+        value: temMesValue.reverse(),
         unit: 'Degree C',
       }, {
         id: 'press',
-        timestamp: pressureMesTimestamp,
+        timestamp: pressureMesTimestamp.reverse(),
         title: 'Pressure',
-        value: pressureMesValue,
-        unit: 'hPa',
+        value: pressureMesValue.reverse(),
+        unit: 'Pa',
       },
       {
         id: 'altitude',
-        timestamp: altitudeMesTimestamp,
+        timestamp: altitudeMesTimestamp.reverse(),
         title: 'Altitude',
-        value: altitudeMesValue,
+        value: altitudeMesValue.reverse(),
         unit: 'Meter',
       },
     ]
