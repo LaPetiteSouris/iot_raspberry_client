@@ -3,7 +3,7 @@ import React, { PropTypes } from 'react'
 
 class MeasurementCard extends React.Component {
   componentDidMount() {
-    setInterval(this.props.refresh, 2000)
+    setInterval(this.props.refresh, 3000)
   }
 
   render() {

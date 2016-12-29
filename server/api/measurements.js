@@ -14,17 +14,17 @@ function findMeasurements(req, res) {
     temperatureMeasurements: Temperature
       .find()
       .sort({ _id: -1 })
-      .limit(300)
+      .limit(60)
       .execAsync(),
     pressureMeasurements: Pressure
       .find()
       .sort({ _id: -1 })
-      .limit(300)
+      .limit(60)
       .execAsync(),
     altitudeMeasurements: Altitude
       .find()
       .sort({ _id: -1 })
-      .limit(300)
+      .limit(60)
       .execAsync(),
   }).then((results) => {
 
